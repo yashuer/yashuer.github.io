@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="##输入地址在地址栏刚输入几个字符时，可以看到地址栏已经开始检索了，并根据输入字符 提供出模糊检索选项供选择跳转。此时浏览器正通过查找 之前发出的请求记录，书签等方式给出提示。 ##按下跳转（Enter）键输入URL跳转之后，浏览器发起对目标资源的请求，但由于互联网中各个计算机直接的寻址都是通过IP地址查找完成的，因此键入的URL是域名时，第一时间是无法定位目标服务器主机在互联网中的位置的，还需">
+<meta name="description" content="JavaScript的并发模型 基于 事件循环，因为js是单线程，同一时间只能执行一个任务，所有的任务代码 都必须排队一个接着一个等待着js解释器 解释执行。 运行时概念栈一个函数调用会形成一个栈帧，这个栈帧里初始化着该函数的词法环境（包含该函数环境下的 形参，函数声明，变量声明 以及 外部环境的引用） 堆对象在内存初始化的地方，一片非结构化的内存区域。（栈、队列都是数据结构的实现，会对应到 一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器从输入URL到页面加载发生了什么">
-<meta property="og:url" content="http://www.codingheart.cn/2018/04/15/浏览器从输入URL到页面加载发生了什么？/index.html">
+<meta property="og:title" content="并发模型与事件循环">
+<meta property="og:url" content="http://www.codingheart.cn/2018/04/25/JavaScriptEventLoop/index.html">
 <meta property="og:site_name" content="Yashuer">
-<meta property="og:description" content="##输入地址在地址栏刚输入几个字符时，可以看到地址栏已经开始检索了，并根据输入字符 提供出模糊检索选项供选择跳转。此时浏览器正通过查找 之前发出的请求记录，书签等方式给出提示。 ##按下跳转（Enter）键输入URL跳转之后，浏览器发起对目标资源的请求，但由于互联网中各个计算机直接的寻址都是通过IP地址查找完成的，因此键入的URL是域名时，第一时间是无法定位目标服务器主机在互联网中的位置的，还需">
+<meta property="og:description" content="JavaScript的并发模型 基于 事件循环，因为js是单线程，同一时间只能执行一个任务，所有的任务代码 都必须排队一个接着一个等待着js解释器 解释执行。 运行时概念栈一个函数调用会形成一个栈帧，这个栈帧里初始化着该函数的词法环境（包含该函数环境下的 形参，函数声明，变量声明 以及 外部环境的引用） 堆对象在内存初始化的地方，一片非结构化的内存区域。（栈、队列都是数据结构的实现，会对应到 一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-16T15:31:56.927Z">
+<meta property="og:updated_time" content="2018-05-10T14:45:18.876Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器从输入URL到页面加载发生了什么">
-<meta name="twitter:description" content="##输入地址在地址栏刚输入几个字符时，可以看到地址栏已经开始检索了，并根据输入字符 提供出模糊检索选项供选择跳转。此时浏览器正通过查找 之前发出的请求记录，书签等方式给出提示。 ##按下跳转（Enter）键输入URL跳转之后，浏览器发起对目标资源的请求，但由于互联网中各个计算机直接的寻址都是通过IP地址查找完成的，因此键入的URL是域名时，第一时间是无法定位目标服务器主机在互联网中的位置的，还需">
+<meta name="twitter:title" content="并发模型与事件循环">
+<meta name="twitter:description" content="JavaScript的并发模型 基于 事件循环，因为js是单线程，同一时间只能执行一个任务，所有的任务代码 都必须排队一个接着一个等待着js解释器 解释执行。 运行时概念栈一个函数调用会形成一个栈帧，这个栈帧里初始化着该函数的词法环境（包含该函数环境下的 形参，函数声明，变量声明 以及 外部环境的引用） 堆对象在内存初始化的地方，一片非结构化的内存区域。（栈、队列都是数据结构的实现，会对应到 一">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://www.codingheart.cn/2018/04/15/浏览器从输入URL到页面加载发生了什么？/"/>
+  <link rel="canonical" href="http://www.codingheart.cn/2018/04/25/JavaScriptEventLoop/"/>
 
 
 
 
 
-  <title>浏览器从输入URL到页面加载发生了什么 | Yashuer</title>
+  <title>并发模型与事件循环 | Yashuer</title>
   
 
 
@@ -316,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.codingheart.cn/2018/04/15/浏览器从输入URL到页面加载发生了什么？/">
+    <link itemprop="mainEntityOfPage" href="http://www.codingheart.cn/2018/04/25/JavaScriptEventLoop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuan Yi">
@@ -333,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浏览器从输入URL到页面加载发生了什么</h1>
+          <h1 class="post-title" itemprop="name headline">并发模型与事件循环</h1>
         
 
         <div class="post-meta">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T21:00:07+08:00">
-                2018-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T22:18:15+08:00">
+                2018-04-25
               </time>
             
 
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,950
+                  615
                 </span>
               
 
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  2
                 </span>
               
             </div>
@@ -416,66 +416,13 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>##输入地址<br>在地址栏刚输入几个字符时，可以看到地址栏已经开始检索了，并根据输入字符 提供出模糊检索选项供选择跳转。此时浏览器正通过查找 之前发出的请求记录，书签等方式给出提示。</p>
-<p>##按下跳转（Enter）键<br>输入URL跳转之后，浏览器发起对目标资源的请求，但由于互联网中各个计算机直接的寻址都是通过IP地址查找完成的，因此键入的URL是域名时，第一时间是无法定位目标服务器主机在互联网中的位置的，还需要将URL转换为具体的IP地址，这一过程（找到域名与IP地址之间的一一对应关系）是通过 <a href="https://baike.baidu.com/item/DNS%E8%A7%A3%E6%9E%90/7296803?fr=aladdin" target="_blank" rel="noopener"><strong>DNS解析</strong></a> 完成的，这期间浏览器通常是有会有<strong>发出DNS请求</strong>的。<br>    其实这个过程很像你在手机通讯录里搜索联系人准备打电话。当你在搜索框输入 “哥哥”<br>    通俗来讲就是 地址栏的域名url无法用来构造http请求报文 浏览器需要</p>
-<p>##发送http请求<br>通过DNS解析的过程，浏览器拿到http请求的目标计算机IP地址，于是开始构造请求报文，并尝试与服务器建立TCP连接，三次握手建立连接后，开始发送http报文。<br>    这是访问 百度 的请求报文，包含请求头（1~8）和正文（9）：</p>
-<pre><code>1. 请求方法（GET）、请求的资源（/）即：根目录下默认的index、使用的http协议版本（HTTP/1.1）；
-2. 请求的主机（host）：www.baidu.com；
-3. 连接状态：保持连接（keep-alive），避免后续 一些图片、js等资源的请求加载又得重新建立连接TCP；
-4. 用户代理：包含请求方的操作系统版本、CPU类型、浏览器版本等；
-5. 客户端建议服务器返回数据的报文格式；
-6. 客户端接受的内容编码（压缩）格式；
-7. 客户端可理解的语言；
-8. cookie：便于服务器进行身份验证,session跟踪的会话信息。（可以弥补http短连接的缺陷）
-9.请求信息：也就是正文，请求头和请求正文之间是一个空行。get方式下，一般是在url里就能看到正文信息，如https://www.baidu.com/s?wd=cookie中的 **wd=cookie**
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Host: www.baidu.com</span><br><span class="line">Connection: keep-alive</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,en;q=0.6,zh-TW;q=0.4</span><br><span class="line">Cookie: BIDUPSID=D735A7E73027171710B93172CA241933</span><br></pre></td></tr></table></figure>
-<p>##服务器接收请求处理并响应<br>请求报文经过路由层层转发来到目标服务器，web服务器 通过报文解析 拿到必要的请求信息，对于一般的静态资源会直接返回给浏览器客户端，一些动态请求则会调用后端程序，这期间一般还会伴随有对数据库发起的数据请求，处理结束得到返回结果后web服务器就开始着手构造响应报文，并通过刚才的连接会话返回报文数据。<br>响应报文格式与请求报文格式 结构基本一样,包括响应报文头和正文。<br>如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Length: 95</span><br><span class="line">Content-Type: baiduApp/json; v6.27.2.14; charset=UTF-8</span><br><span class="line">Date: Sun, 15 Apr 2018 15:29:07 GMT</span><br><span class="line">Expires: Sun, 15 Apr 2018 16:29:07 GMT</span><br><span class="line">Server: suggestion.baidu.zbb.df</span><br></pre></td></tr></table></figure></p>
-<p>1.由<strong>协议版本</strong>，<strong>状态码</strong>，<strong>状态描述信息</strong>构成的状态行；<br>2.包含 响应报文大小，报文缓存信息， cookie的设置信息等。</p>
-<p>###状态行相关拓展<br><strong>状态行：</strong></p>
-<p>状态行由协议版本、数字形式的状态代码、及相应的状态描述，各元素之间以空格分隔。</p>
-<p>格式:    HTTP-Version Status-Code Reason-Phrase CRLF</p>
-<p>例如:    HTTP/1.1 200 OK \r\n</p>
-<p>– 协议版本：是用http1.0还是其他版本</p>
-<p>– 状态描述：状态描述给出了关于状态代码的简短的文字描述。比如状态代码为200时的描述为 ok</p>
-<p>– 状态代码：状态代码由三位数字组成，第一个数字定义了响应的类别，且有五种可能取值。如下</p>
-<p><strong>1xx</strong>：信息性状态码，表示服务器已接收了客户端请求，客户端可继续发送请求。</p>
-<pre><code>100 Continue
-
-101 Switching Protocols
-</code></pre><p> <strong>2xx</strong>：成功状态码，表示服务器已成功接收到请求并进行处理。</p>
-<pre><code>200 OK 表示客户端请求成功
-
-204 No Content 成功，但不返回任何实体的主体部分
-
-206 Partial Content 成功执行了一个范围（Range）请求
-</code></pre><p><strong>3xx</strong>：重定向状态码，表示服务器要求客户端重定向。</p>
-<pre><code>301 Moved Permanently 永久性重定向，响应报文的Location首部应该有该资源的新URL
-
-302 Found 临时性重定向，响应报文的Location首部给出的URL用来临时定位资源
-
-303 See Other 请求的资源存在着另一个URI，客户端应使用GET方法定向获取请求的资源
-
-304 Not Modified 服务器内容没有更新，可以直接读取浏览器缓存
-
- 307 Temporary Redirect 临时重定向。与302 Found含义一样。302禁止POST变换为GET，但实际使用时并不一定，307则更多浏览器可能会遵循这一标准，但也依赖于浏览器具体实现
-</code></pre><p> <strong>4xx</strong>：客户端错误状态码，表示客户端的请求有非法内容。</p>
-<pre><code>400 Bad Request 表示客户端请求有语法错误，不能被服务器所理解
-
-401 Unauthonzed 表示请求未经授权，该状态代码必须与 WWW-Authenticate 报头域一起使用
-
-403 Forbidden 表示服务器收到请求，但是拒绝提供服务，通常会在响应正文中给出不提供服务的原因
-
-404 Not Found 请求的资源不存在，例如，输入了错误的URL
-</code></pre><p><strong>5xx</strong>：服务器错误状态码，表示服务器未能正常处理客户端的请求而出现意外错误。</p>
-<pre><code>500 Internel Server Error 表示服务器发生不可预期的错误，导致无法完成客户端的请求
-
-503 Service Unavailable 表示服务器当前不能够处理客户端的请求，在一段时间之后，服务器可能会恢复正常
-</code></pre><p>##浏览器接收到响应报文<br>    对于前端来说，这部分才是重头戏，所以会多费些笔墨来写。以最通常的例子，浏览器从响应报文中解析出html正文后，这时候浏览器的渲染引擎开始工作了。<br>渲染引擎的主要工作分为三个大的流程：</p>
-<pre><code>1. **创建呈现树**：通过解析htm标记语言构建DOM树,同时将外联、嵌入、内联的css样式数据也解析出来，并对应到DOM树上，从而完成**呈现树**的构建。
-2. **布局**：呈现树构建完成时只包含尺寸，颜色一类的视觉属性，但元素具体的位置、大小信息还需要经过计算才能确定，这一过程就叫做布局，
-
-3. **绘制**
-</code></pre><p>   首先呈现引擎将开始解析 HTML 文档，并将各标记逐个转化成“内容树”上的 DOM 节点。同时也会解析外部 CSS 文件以及样式元素中的样式数据。HTML 中这些带有视觉指令的样式信息将用于创建另一个树结构：呈现树（Render Tree）。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><p>JavaScript的并发模型 基于 事件循环，因为js是单线程，同一时间只能执行一个任务，所有的任务代码 都必须排队一个接着一个等待着js解释器 解释执行。</p>
+<h2 id="运行时概念"><a href="#运行时概念" class="headerlink" title="运行时概念"></a>运行时概念</h2><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>一个函数调用会形成一个栈帧，这个栈帧里初始化着该函数的词法环境（包含该函数环境下的 形参，函数声明，变量声明 以及 外部环境的引用）</p>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>对象在内存初始化的地方，一片非结构化的内存区域。（栈、队列都是数据结构的实现，会对应到 一片结构化的内存区域）</p>
+<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>在事件循环期间的某个时间点，运行时开始处理队列中的消息，依照队列先进先出的原则，从最先到的一个开始处理。 之后，消息将从队列中移除，并将其消息作为输入参数调用其相应的回调函数。 与正常的同步代码一样，调用一个函数会为该函数创建一个新的栈帧。</p>
+<h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><p>js线程在执行完同步代码后 会不停的 轮询 消息队列（按阮一峰老师的说法，任务队列、消息队列、事件队列 可以理解为同一个。原话：”任务队列”是一个事件的队列（也可以理解成消息的队列））， 查看是否存在需要处理的消息。 类似 这种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while (queue.waitForMessage()) &#123;</span><br><span class="line">  queue.processNextMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果当前没有消息，线程会同步的等待异步消息的到达。（意思是 异步消息一抵达，立马就能 入栈执行）。</p>
+<h2 id="同步任务、异步任务、宏任务、微任务"><a href="#同步任务、异步任务、宏任务、微任务" class="headerlink" title="同步任务、异步任务、宏任务、微任务"></a>同步任务、异步任务、宏任务、微任务</h2><p>这四个术语并不是各自独立的，所有的任务可以分为 同步、异步两种；但为了更好的理解 JS的异步执行 将任务分为 宏任务、微任务。<br>以下是我自己的理解：<br>同步任务是指：无需经过事件循环 直接进入 执行栈 执行的任务代码；<br>异步任务则是： 第一时间无法进入执行栈，需通过 进入任务队列，通过事件循环才能进入 执行栈 的任务代码。<br>宏任务：setTimeout，setInterval，ajax，dom操作 等代码产生的任务都属于宏任务，异步任务会进入到任务队列之中</p>
 
       
     </div>
@@ -525,7 +472,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.codingheart.cn/2018/04/15/浏览器从输入URL到页面加载发生了什么？/" title="浏览器从输入URL到页面加载发生了什么">http://www.codingheart.cn/2018/04/15/浏览器从输入URL到页面加载发生了什么？/</a>
+    <a href="http://www.codingheart.cn/2018/04/25/JavaScriptEventLoop/" title="并发模型与事件循环">http://www.codingheart.cn/2018/04/25/JavaScriptEventLoop/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -564,8 +511,8 @@ function lwlhitokoto(obj){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/01/miss/" rel="next" title="思">
-                <i class="fa fa-chevron-left"></i> 思
+              <a href="/2018/04/15/浏览器从输入URL到页面加载发生了什么？/" rel="next" title="浏览器从输入URL到页面加载发生了什么">
+                <i class="fa fa-chevron-left"></i> 浏览器从输入URL到页面加载发生了什么
               </a>
             
           </div>
@@ -573,10 +520,6 @@ function lwlhitokoto(obj){
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/25/JavaScriptEventLoop/" rel="prev" title="并发模型与事件循环">
-                并发模型与事件循环 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -660,8 +603,17 @@ function lwlhitokoto(obj){
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -789,6 +741,22 @@ function lwlhitokoto(obj){
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时概念"><span class="nav-number">1.</span> <span class="nav-text">运行时概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">1.1.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">1.2.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-number">1.3.</span> <span class="nav-text">队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件循环"><span class="nav-number">2.</span> <span class="nav-text">事件循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步任务、异步任务、宏任务、微任务"><span class="nav-number">3.</span> <span class="nav-text">同步任务、异步任务、宏任务、微任务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
